@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CompareCollections {
 
-	private List<List> compareArrays(List<Integer> list1, List<Integer> list2) {
+	public List<List> compareArrays(List<Integer> list1, List<Integer> list2) {
 		List<List> listOfSets = new ArrayList<List>();
 
 		List<Integer> copiedList1 = new ArrayList(list1);
