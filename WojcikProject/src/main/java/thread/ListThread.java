@@ -3,7 +3,9 @@ package thread;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-public class ListThread implements Callable<Integer> {
+import sort.Sort;
+
+public class ListThread implements Callable<Long> {
 
 	private String threadName;
 	private List<Integer> list;
@@ -25,13 +27,20 @@ public class ListThread implements Callable<Integer> {
 	}
 
 	@Override
-	public Integer call() throws Exception {
+	public Long call() throws Exception {
 		System.out.println("Thread is starting: " + threadName);
-		Integer sum = 0;
-		for (Integer value : list) {
-			sum += value;
-		}
-		return sum / list.size();
+		Long sum = 0L;
+		Sort sort = new Sort();
+		sort.quickSort(list, 0, list.size()-1);
+		if(list.size()!=0) {
+			for (Integer value : list) {
+				sum += value;
+//				System.out.println(threadName + " : " + sum);
+			}
+			return sum / list.size();
+		} else
+			return sum;
+
 	}
 
 }

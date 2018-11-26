@@ -1,6 +1,8 @@
 package collection;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -14,11 +16,11 @@ public class CollectionGenerator {
 		this.range = range;
 	}
 	
-	public Set<Integer> generateCollection(){
-		Set<Integer> dataSet = new HashSet<Integer>();
+	public List<Integer> generateCollection(){
+		List<Integer> dataSet = new ArrayList<Integer>();
 		Random rand = new Random();
 		while(dataSet.size() < size) {
-			Integer value = rand.nextInt(range * (dataSet.size()+1)) + 0;
+			Integer value = rand.nextInt(range) + 0;
 			dataSet.add(value);
 		}
 		return dataSet;
